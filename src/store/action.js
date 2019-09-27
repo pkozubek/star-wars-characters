@@ -1,36 +1,37 @@
-import { getCharacterData } from "../api/api";
+import { getCharacterData, getAdditionalData } from "../api/api";
 
 export const loadCharacterData = page => {
   return dispatch => {
-    const gatheredCharacters = [];
-    dispatch(setLoading(true));
-
     getCharacterData(page).then(apiResponse => {
       const { results: characters, hasNextPage } = apiResponse;
 
       dispatch(setNextPagePossible(hasNextPage));
 
       characters.forEach(singleCharacter => {
-        gatheredCharacters.push(singleCharacter);
-      });
+        delete singleCharacter.created;
+        delete singleCharacter.edited;
+        delete singleCharacter.url;
+        delete singleCharacter.films;
+        delete singleCharacter.vehicles;
+        delete singleCharacter.starships;
 
-      dispatch(setCharacters(gatheredCharacters));
-      dispatch(setLoading(false));
+        getAdditionalData(
+          singleCharacter.homeworld,
+          singleCharacter.species
+        ).then(({ homeName, specieName }) => {
+          singleCharacter.homeworld = homeName;
+          singleCharacter.species = specieName;
+          dispatch(addCharacter(singleCharacter));
+        });
+      });
     });
   };
 };
 
-const setCharacters = characters => {
+const addCharacter = character => {
   return {
-    type: "SET_CHARACTERS",
-    charactersArray: characters
-  };
-};
-
-const setLoading = isLoading => {
-  return {
-    type: "SET_LOADING",
-    isLoading: isLoading
+    type: "ADD_CHARACTER",
+    characterData: character
   };
 };
 

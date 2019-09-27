@@ -8,23 +8,18 @@ const reducer = (state = initialState, action) => {
   const { type } = action;
 
   switch (type) {
-    case "SET_CHARACTERS":
-      const { charactersArray } = action;
+    case "ADD_CHARACTER":
+      const { characterData } = action;
+
       return {
         ...state,
-        characters: charactersArray
+        characters: [...state.characters, characterData]
       };
     case "SET_BLOCK":
       const { isBlocked } = action;
       return {
         ...state,
         isBlocked: isBlocked
-      };
-    case "SET_LOADING":
-      const { isLoading } = action;
-      return {
-        ...state,
-        isLoading: isLoading
       };
     default:
       return state;
