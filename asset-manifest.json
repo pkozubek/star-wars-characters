@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/star-wars-characters/static/css/main.34de6062.chunk.css",
+    "main.js": "/star-wars-characters/static/js/main.edca155d.chunk.js",
+    "main.js.map": "/star-wars-characters/static/js/main.edca155d.chunk.js.map",
+    "runtime-main.js": "/star-wars-characters/static/js/runtime-main.e8a25fe6.js",
+    "runtime-main.js.map": "/star-wars-characters/static/js/runtime-main.e8a25fe6.js.map",
+    "static/js/2.496acd04.chunk.js": "/star-wars-characters/static/js/2.496acd04.chunk.js",
+    "static/js/2.496acd04.chunk.js.map": "/star-wars-characters/static/js/2.496acd04.chunk.js.map",
+    "index.html": "/star-wars-characters/index.html",
+    "precache-manifest.6c6c14fe69ae0276218e7371a1bb8e3b.js": "/star-wars-characters/precache-manifest.6c6c14fe69ae0276218e7371a1bb8e3b.js",
+    "service-worker.js": "/star-wars-characters/service-worker.js",
+    "static/css/main.34de6062.chunk.css.map": "/star-wars-characters/static/css/main.34de6062.chunk.css.map",
+    "static/media/space.png": "/star-wars-characters/static/media/space.8644e275.png"
+  }
+}
